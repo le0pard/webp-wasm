@@ -1,0 +1,10 @@
+.bundle
+.cache
+.DS_Store
+.sass-cache
+.s3_sync
+build/
+.tmp/
+node_modules/
+webp-wasm/libwebp/
+yarn-error.log
