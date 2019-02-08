@@ -1,6 +1,6 @@
 {
-  "name": "webp-online",
-  "description": "webp-online website",
+  "name": "webp-wasm",
+  "description": "webp-wasm website",
   "author": "Alexey Vasiliev",
   "version": "0.1.0",
   "license": "MIT",

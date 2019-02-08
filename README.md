@@ -1,4 +1,4 @@
-# [Webp Online](https://webp.leopard.in.ua/) [![Build Status](https://travis-ci.org/le0pard/webp-online.svg?branch=master)](https://travis-ci.org/le0pard/webp-online)
+# [Webp Online](https://webp.leopard.in.ua/) [![Build Status](https://travis-ci.org/le0pard/webp-wasm.svg?branch=master)](https://travis-ci.org/le0pard/webp-wasm)
 
 Webp image convertor. 
 
