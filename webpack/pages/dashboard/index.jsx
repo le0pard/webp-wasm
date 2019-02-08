@@ -16,7 +16,7 @@ export default class DashboardPage extends React.Component {
           </div>
           <div className="dashboard-header-title">
             <h1 className="dashboard-header-title__text">
-              PGTune
+              Webp Wasm
             </h1>
           </div>
         </div>

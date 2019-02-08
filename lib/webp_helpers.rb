@@ -7,7 +7,7 @@ module WebpHelpers
   end
 
   def default_description_helper
-    "Webp Online converter"
+    "Webp Wasm converter"
   end
 
   def javascript_pack_tag(name)
