@@ -6,9 +6,20 @@ import {APP_THEMES_LIGHT} from 'reducers/settings/constants'
 import LocalStorage from 'lib/localStorage'
 import {initializeStore} from './redux/store'
 import {initServiceWorker} from './sw'
+
+const initWasmModule = (store) => {
+  window.Module = {
+    ...(window.Module || {}),
+    onRuntimeInitialized: () => {
+      console.log('ready for work', store)
+    }
+  }
+}
+
 // render app
 const renderApp = (Component, appRoot, store) => {
   initServiceWorker(store)
+  initWasmModule(store)
 
   ReactDom.render(
     <Component store={store} />,

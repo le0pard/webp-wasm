@@ -1,5 +1,5 @@
 import React from 'react'
-import MainGenerator from 'containers/mainGenerator'
+import MainConvertor from 'containers/mainConvertor'
 import pgtuneLogo from './pgtune.svg'
 
 import './dashboard.sass'
@@ -10,7 +10,7 @@ export default class DashboardPage extends React.Component {
       <div className="dashboard-page">
         <div className="dashboard-header-wrapper">
           <div className="dashboard-header-logo">
-            <img alt="Pgtune"
+            <img alt="Webp-Wasm"
               className="dashboard-header-logo__svg"
               src={pgtuneLogo} />
           </div>
@@ -20,7 +20,7 @@ export default class DashboardPage extends React.Component {
             </h1>
           </div>
         </div>
-        <MainGenerator />
+        <MainConvertor />
       </div>
     )
   }

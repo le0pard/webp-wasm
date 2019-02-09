@@ -1,0 +1,28 @@
+@import 'variables'
+
+.uploader-box
+  position: relative
+  padding: 100px 20px
+
+.uploader-box--advanced
+  outline: 2px dashed var(--commentColor)
+  outline-offset: -10px
+
+.uploader-box--is-dragover
+  outline-offset: -20px
+  outline-color: var(--emphColor)
+  background-color: var(--headsColor)
+
+.uploader-box__wrapper
+  text-align: center
+
+.uploader-box__input
+  width: 0.1px
+  height: 0.1px
+  opacity: 0
+  overflow: hidden
+  position: absolute
+  z-index: -1
+
+.uploader-box__dragndrop
+  display: inline
