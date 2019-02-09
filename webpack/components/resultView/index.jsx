@@ -22,6 +22,13 @@ export default class ResultView extends React.Component {
     this.imageRef.current.src = blobURL
   }
 
+  componentDidUpdate(prevProps) {
+    const {blobURL} = prevProps.encodedImageData
+    if (blobURL !== this.props.encodedImageData.blobURL) {
+      window.URL.revokeObjectURL(blobURL)
+    }
+  }
+
   componentWillUnmount() {
     const {blobURL} = this.props.encodedImageData
     window.URL.revokeObjectURL(blobURL)

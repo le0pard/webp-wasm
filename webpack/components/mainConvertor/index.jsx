@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import InfoView from 'components/infoView'
+import EncodeSpinner from 'components/encodeSpinner'
 import UploaderForm from 'containers/uploaderForm'
 import ResultView from 'containers/resultView'
 
@@ -32,7 +33,7 @@ export default class MainConvertor extends React.Component {
         </div>
         <div className="main-convertor-result-wrapper">
           {isEmptyState && <InfoView />}
-          {isEncodingImage && <div>Loading...</div>}
+          {isEncodingImage && <EncodeSpinner />}
           {isHaveEncodedImage && <ResultView />}
         </div>
       </div>
