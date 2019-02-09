@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import './configuration-view.sass'
+import './result-view.sass'
 
 export default class ResultView extends React.Component {
   static propTypes = {
@@ -29,8 +29,8 @@ export default class ResultView extends React.Component {
 
   render() {
     return (
-      <div>
-        <img ref={this.imageRef} src="" />
+      <div className="result-view-container">
+        <img className="result-view-img" ref={this.imageRef} src="" />
       </div>
     )
   }

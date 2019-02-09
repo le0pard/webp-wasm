@@ -28,9 +28,6 @@ export default class MainConvertor extends React.Component {
     return (
       <div className="main-convertor">
         <div className="main-convertor-form-wrapper">
-          <h4 className="main-convertor-form-subtitle">
-            Parameters of your system
-          </h4>
           <UploaderForm />
         </div>
         <div className="main-convertor-result-wrapper">
