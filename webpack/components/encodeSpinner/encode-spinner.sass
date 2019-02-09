@@ -1,0 +1,55 @@
+@import 'variables'
+
+.encode-spinner-grid
+  width: 60px
+  height: 60px
+  margin: 50px auto
+  .encode-spinner-item
+    width: 33%
+    height: 33%
+    background-color: var(--baseColor)
+    float: left
+    -webkit-animation: encodeSpinnerGridScaleDelay 1.3s infinite ease-in-out
+    animation: encodeSpinnerGridScaleDelay 1.3s infinite ease-in-out
+  .encode-spinner1
+    -webkit-animation-delay: 0.2s
+    animation-delay: 0.2s
+  .encode-spinner2
+    -webkit-animation-delay: 0.3s
+    animation-delay: 0.3s
+  .encode-spinner3
+    -webkit-animation-delay: 0.4s
+    animation-delay: 0.4s
+  .encode-spinner4
+    -webkit-animation-delay: 0.1s
+    animation-delay: 0.1s
+  .encode-spinner5
+    -webkit-animation-delay: 0.2s
+    animation-delay: 0.2s
+  .encode-spinner6
+    -webkit-animation-delay: 0.3s
+    animation-delay: 0.3s
+  .encode-spinner7
+    -webkit-animation-delay: 0s
+    animation-delay: 0s
+  .encode-spinner8
+    -webkit-animation-delay: 0.1s
+    animation-delay: 0.1s
+  .encode-spinner9
+    -webkit-animation-delay: 0.2s
+    animation-delay: 0.2s
+
+@-webkit-keyframes encodeSpinnerGridScaleDelay
+  0%, 70%, 100%
+    transform: scale3D(1, 1, 1)
+
+  35%
+    transform: scale3D(0, 0, 1)
+
+
+@keyframes encodeSpinnerGridScaleDelay
+  0%, 70%, 100%
+    transform: scale3D(1, 1, 1)
+
+  35%
+    transform: scale3D(0, 0, 1)
