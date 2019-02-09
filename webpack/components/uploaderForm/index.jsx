@@ -90,12 +90,17 @@ export default class UploaderForm extends React.Component {
     }
   }
 
+  humanFileSize(size) {
+    const i = Math.floor(Math.log(size) / Math.log(1024))
+    return `${(size / Math.pow(1024, i)).toFixed(2)} ${['B', 'kB', 'MB', 'GB', 'TB'][i]}`
+  }
+
   renderImageInfo(imageData) {
     return (
       <div>
         <ul>
           <li>Name: {imageData.name}</li>
-          <li>Size: {imageData.size}</li>
+          <li>Size: {this.humanFileSize(imageData.size)}</li>
           <li>Type: {imageData.type}</li>
         </ul>
       </div>
