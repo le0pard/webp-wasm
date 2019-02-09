@@ -6,7 +6,11 @@ import './uploader-form.sass'
 
 export default class UploaderForm extends React.Component {
   static propTypes = {
-    uploadedImageName: PropTypes.string,
+    imageData: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      size: PropTypes.number.isRequired,
+      type: PropTypes.string.isRequired,
+    }),
     encodeImage: PropTypes.func.isRequired
   }
 
@@ -19,21 +23,15 @@ export default class UploaderForm extends React.Component {
     this.isFileDropped = this.isFileDropped.bind(this)
     /* box ref */
     this.uploaderBoxRef = React.createRef()
-    this.resetImageFile()
     this.state = {
       isDragover: false
     }
   }
 
   setImageFile(imageFile) {
-    this.imageFile = imageFile
-    if (this.imageFile.type.match('image.*')) {
-      this.props.encodeImage(this.imageFile)
+    if (imageFile.type.match('image.*')) {
+      this.props.encodeImage(imageFile)
     }
-  }
-
-  resetImageFile() {
-    this.imageFile = null
   }
 
   isDragPreventDefault(e) {
@@ -77,14 +75,13 @@ export default class UploaderForm extends React.Component {
 
   componentWillUnmount() {
     const uploaderBox = this.uploaderBoxRef.current
-    uploaderBox.removeEventListener('drag')
-    uploaderBox.removeEventListener('dragstart')
-    uploaderBox.removeEventListener('dragover')
-    uploaderBox.removeEventListener('dragenter')
-    uploaderBox.removeEventListener('dragleave')
-    uploaderBox.removeEventListener('dragend')
-    uploaderBox.removeEventListener('drop')
-    this.resetImageFile()
+    uploaderBox.removeEventListener('drag', this.isDragPreventDefault)
+    uploaderBox.removeEventListener('dragstart', this.isDragPreventDefault)
+    uploaderBox.removeEventListener('dragover', this.isDragOver)
+    uploaderBox.removeEventListener('dragenter', this.isDragOver)
+    uploaderBox.removeEventListener('dragleave', this.isNotDragOver)
+    uploaderBox.removeEventListener('dragend', this.isNotDragOver)
+    uploaderBox.removeEventListener('drop', this.isFileDropped)
   }
 
   onInputChange(e) {
@@ -93,7 +90,20 @@ export default class UploaderForm extends React.Component {
     }
   }
 
+  renderImageInfo(imageData) {
+    return (
+      <div>
+        <ul>
+          <li>Name: {imageData.name}</li>
+          <li>Size: {imageData.size}</li>
+          <li>Type: {imageData.type}</li>
+        </ul>
+      </div>
+    )
+  }
+
   render() {
+    const {imageData} = this.props
     const {isDragover} = this.state
 
     return (
@@ -109,6 +119,7 @@ export default class UploaderForm extends React.Component {
             </label>
           </div>
         </form>
+        {imageData && this.renderImageInfo(imageData)}
       </div>
     )
   }

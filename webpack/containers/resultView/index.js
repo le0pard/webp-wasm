@@ -1,9 +1,8 @@
 import {connect} from 'react-redux'
-import ConfigurationView from 'components/configurationView'
+import ResultView from 'components/resultView'
 
 const mapStateToProps = (state) => ({
-  // app theme
-  theme: state.settings.theme
+  encodedImageData: state.uploader.encodedImageData
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -13,4 +12,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ConfigurationView)
+)(ResultView)

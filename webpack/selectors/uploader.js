@@ -1,13 +1,14 @@
 import {createSelector} from 'reselect'
 
 const getImageData = (state) => state.uploader.imageData
+const getEncodedImageData = (state) => state.uploader.encodedImageData
 
-export const isUploadedImage = createSelector(
+export const isEmptyState = createSelector(
   [getImageData],
-  (imageData) => !!imageData
+  (imageData) => !imageData
 )
 
-export const uploadedImageName = createSelector(
-  [getImageData],
-  (imageData) => imageData ? imageData.name : null
+export const isHaveEncodedImage = createSelector(
+  [getEncodedImageData],
+  (encodedImageData) => !!encodedImageData
 )

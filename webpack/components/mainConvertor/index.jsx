@@ -2,13 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import InfoView from 'components/infoView'
 import UploaderForm from 'containers/uploaderForm'
-import ConfigurationView from 'containers/configurationView'
+import ResultView from 'containers/resultView'
 
 import './main-convertor.sass'
 
 export default class MainConvertor extends React.Component {
   static propTypes = {
-    isUploadedImage: PropTypes.bool.isRequired,
+    isEmptyState: PropTypes.bool.isRequired,
+    isEncodingImage: PropTypes.bool.isRequired,
+    isHaveEncodedImage: PropTypes.bool.isRequired,
     resetImage: PropTypes.func.isRequired
   }
 
@@ -17,7 +19,11 @@ export default class MainConvertor extends React.Component {
   }
 
   render() {
-    const {isUploadedImage} = this.props
+    const {
+      isEmptyState,
+      isEncodingImage,
+      isHaveEncodedImage
+    } = this.props
 
     return (
       <div className="main-convertor">
@@ -28,8 +34,9 @@ export default class MainConvertor extends React.Component {
           <UploaderForm />
         </div>
         <div className="main-convertor-result-wrapper">
-          {!isUploadedImage && <InfoView />}
-          {isUploadedImage && <ConfigurationView />}
+          {isEmptyState && <InfoView />}
+          {isEncodingImage && <div>Loading...</div>}
+          {isHaveEncodedImage && <ResultView />}
         </div>
       </div>
     )

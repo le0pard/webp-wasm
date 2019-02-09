@@ -1,10 +1,12 @@
 import {connect} from 'react-redux'
 import MainConvertor from 'components/mainConvertor'
-import {isUploadedImage} from 'selectors/uploader'
+import {isEmptyState, isEncodingImage, isHaveEncodedImage} from 'selectors/uploader'
 import {resetImage} from 'reducers/uploader'
 
 const mapStateToProps = (state) => ({
-  isUploadedImage: isUploadedImage(state)
+  isEmptyState: isEmptyState(state),
+  isEncodingImage: state.uploader.isEncodingImage,
+  isHaveEncodedImage: isHaveEncodedImage(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({

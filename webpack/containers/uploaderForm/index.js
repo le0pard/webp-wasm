@@ -1,7 +1,6 @@
 import {connect} from 'react-redux'
 import WasmConverter from 'lib/wasmConverter'
 import UploaderForm from 'components/uploaderForm'
-import {uploadedImageName} from 'selectors/uploader'
 import {
   uploadImageData,
   startEncoding,
@@ -10,7 +9,7 @@ import {
 } from 'reducers/uploader'
 
 const mapStateToProps = (state) => ({
-  uploadedImageName: uploadedImageName(state)
+  imageData: state.uploader.imageData
 })
 
 const mapDispatchToProps = (dispatch) => ({
