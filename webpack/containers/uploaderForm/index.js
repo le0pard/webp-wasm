@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import WasmConverter from 'lib/wasmConverter'
+import WasmWebp from 'lib/wasmWebp'
 import UploaderForm from 'components/uploaderForm'
 import {
   uploadImageData,
@@ -13,21 +13,21 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  encodeImage: (imageObj) => {
+  encodeImage: (imageObj, quality) => {
     dispatch(uploadImageData({
       name: imageObj.name,
       size: imageObj.size,
       type: imageObj.type
     }))
 
-    WasmConverter.encode(
-      imageObj, 
-      100, 
+    WasmWebp.encode(
+      imageObj,
+      quality,
       () => dispatch(startEncoding())
     ).then((res) => {
       dispatch(encodeSuccess(res))
-    }).catch(() => {
-      dispatch(encodeError())
+    }).catch((err) => {
+      dispatch(encodeError(err))
     })
   }
 })

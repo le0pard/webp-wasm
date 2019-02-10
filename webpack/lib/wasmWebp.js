@@ -8,11 +8,11 @@ const webpApi = {
   freeResult: window.Module.cwrap('free_result', '', ['number']),
 }
 
-const WasmConverter = {
+const WasmWebp = {
   encode: (image, quality = 100, onStartEncoding = (() => {})) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader()
-      
+
       reader.onload = () => {
         onStartEncoding.call(null)
 
@@ -27,8 +27,8 @@ const WasmConverter = {
             // Draw image onto canvas
             const ctx = canvas.getContext('2d')
             ctx.drawImage(img, 0, 0)
-            return ctx.getImageData(0, 0, img.width, img.height)
-          }).then((imageData) => {
+            const imageData = ctx.getImageData(0, 0, img.width, img.height)
+            // allocate memory for image
             const imagePointer = webpApi.createBuffer(imageData.width, imageData.height)
             window.Module.HEAP8.set(imageData.data, imagePointer)
             webpApi.encode(imagePointer, imageData.width, imageData.height, quality)
@@ -38,15 +38,15 @@ const WasmConverter = {
             const result = new Uint8Array(resultView)
             webpApi.freeResult(resultPointer)
 
-            const blob = new Blob([result], { type: 'image/webp' })
-            const blobURL = URL.createObjectURL(blob)
+            const blob = new Blob([result], {type: 'image/webp'})
+            const blobURL = window.URL.createObjectURL(blob)
             webpApi.destroyBuffer(imagePointer)
-            return {
+            return resolve({
               blobURL,
-              width: imageData.width, 
+              width: imageData.width,
               height: imageData.height
-            }
-          }).then((imageResult) => resolve(imageResult)).catch((err) => reject(err))
+            })
+          }).catch((err) => reject(err))
       }
       reader.onerror = (err) => {
         reject(err)
@@ -56,4 +56,4 @@ const WasmConverter = {
   }
 }
 
-export default WasmConverter
+export default WasmWebp

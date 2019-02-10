@@ -26,8 +26,16 @@ const encodedImageData = createReducer({
   [resetImage]: () => null
 }, null)
 
+const encodedResultError = createReducer({
+  [startEncoding]: () => null,
+  [encodeSuccess]: () => null,
+  [encodeError]: (state, payload) => payload,
+  [resetImage]: () => null
+}, null)
+
 export const reducer = combineReducers({
   imageData,
   isEncodingImage,
-  encodedImageData
+  encodedImageData,
+  encodedResultError
 })

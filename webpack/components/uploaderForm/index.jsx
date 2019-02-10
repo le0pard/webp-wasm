@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
+import QualitySlider from 'components/qualitySlider'
 
 import './uploader-form.sass'
 
@@ -24,13 +25,23 @@ export default class UploaderForm extends React.Component {
     /* box ref */
     this.uploaderBoxRef = React.createRef()
     this.state = {
-      isDragover: false
+      quality: 90,
+      isDragover: false,
+      imageFile: null
     }
   }
 
   setImageFile(imageFile) {
-    if (imageFile.type.match('image.*')) {
-      this.props.encodeImage(imageFile)
+    this.setState((prevState) => ({
+      ...prevState,
+      imageFile
+    }), () => this.encodeImage())
+  }
+
+  encodeImage() {
+    const {imageFile, quality} = this.state
+    if (imageFile && imageFile.type && imageFile.type.match('image.*')) {
+      this.props.encodeImage(imageFile, quality)
     }
   }
 
@@ -107,12 +118,19 @@ export default class UploaderForm extends React.Component {
     )
   }
 
+  onQualityChange(quality) {
+    this.setState((prevState) => ({
+      ...prevState,
+      quality
+    }), () => this.encodeImage())
+  }
+
   render() {
     const {imageData} = this.props
-    const {isDragover} = this.state
+    const {isDragover, quality} = this.state
 
     return (
-      <div className='uploader-container'>
+      <div className="uploader-container">
         <form ref={this.uploaderBoxRef} className={classnames('uploader-box uploader-box--advanced', {
           'uploader-box--is-dragover': isDragover
         })} method="post" action="" encType="multipart/form-data">
@@ -124,6 +142,9 @@ export default class UploaderForm extends React.Component {
             </label>
           </div>
         </form>
+        <div className="uploader-container-slide-box">
+          <QualitySlider defaultValue={quality} onChange={this.onQualityChange.bind(this)} />
+        </div>
         {imageData && this.renderImageInfo(imageData)}
       </div>
     )
