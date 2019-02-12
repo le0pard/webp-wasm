@@ -29,8 +29,10 @@ export default class QualitySlider extends React.Component {
     const {value} = this.state
 
     return (
-      <div>
-        <div>Webp image quality: {value}</div>
+      <div className="quality-slider">
+        <div className="quality-slider__label">
+          Webp image quality: {value}
+        </div>
         <Slider
           defaultValue={defaultValue}
           min={10}

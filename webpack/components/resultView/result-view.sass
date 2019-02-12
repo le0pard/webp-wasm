@@ -9,3 +9,32 @@
   max-height: 100%
   display: block
   margin: auto
+  border: 1px solid var(--emphColor)
+
+@import 'variables'
+
+.result-view-save-wrapper
+  margin-top: 20px
+  lost-flex-container: row
+
+.result-view-save-link
+  lost-column: 1/1
+  lost-align: center
+  text-align: center
+  background-color: var(--headsColor)
+  color: var(--baseColor)
+  border: 1px solid var(--commentColor)
+  box-sizing: border-box
+  height: $button-height
+  text-decoration: none
+
+  &:focus
+    outline: 0
+
+  &:hover
+    color: var(--baseColor)
+    background-color: var(--buttonHover)
+
+  &:active
+    color: var(--baseColor)
+    border-width: 2px

@@ -4,6 +4,8 @@ import ReactDom from 'react-dom'
 import Root from './root'
 import {APP_THEMES_LIGHT} from 'reducers/settings/constants'
 import LocalStorage from 'lib/localStorage'
+import WasmWebp from 'lib/wasmWebp'
+import {webpVersion} from 'reducers/settings'
 import {initializeStore} from './redux/store'
 import {initServiceWorker} from './sw'
 
@@ -11,15 +13,22 @@ const initWasmModule = (store) => {
   window.Module = {
     ...(window.Module || {}),
     onRuntimeInitialized: () => {
-      console.log('ready for work', store)
+      setTimeout(() => {
+        store.dispatch(webpVersion(WasmWebp.getVersion()))
+      }, 0)
     }
   }
+  // load wasm js file
+  const script = document.createElement('script')
+  script.src = '/webp.js'
+  script.async = true
+  document.head.appendChild(script)
 }
 
 // render app
 const renderApp = (Component, appRoot, store) => {
-  initServiceWorker(store)
   initWasmModule(store)
+  initServiceWorker(store)
 
   ReactDom.render(
     <Component store={store} />,

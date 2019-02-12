@@ -4,6 +4,7 @@ import {isEmptyState, isEncodingImage, isHaveEncodedImage} from 'selectors/uploa
 import {resetImage} from 'reducers/uploader'
 
 const mapStateToProps = (state) => ({
+  libwebpVersion: state.settings.libwebpVersion,
   isEmptyState: isEmptyState(state),
   isEncodingImage: state.uploader.isEncodingImage,
   isHaveEncodedImage: isHaveEncodedImage(state)

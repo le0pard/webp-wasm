@@ -108,12 +108,16 @@ export default class UploaderForm extends React.Component {
 
   renderImageInfo(imageData) {
     return (
-      <div>
-        <ul>
-          <li>Name: {imageData.name}</li>
-          <li>Size: {this.humanFileSize(imageData.size)}</li>
-          <li>Type: {imageData.type}</li>
-        </ul>
+      <div className="uploader-container-image">
+        <h4 className="uploader-container-image-title">Image info</h4>
+        <div className="uploader-container-image-info">
+          <div className="uploader-container-image-info__key">Name:</div>
+          <div className="uploader-container-image-info__value">{imageData.name}</div>
+          <div className="uploader-container-image-info__key">Size:</div>
+          <div className="uploader-container-image-info__value">{this.humanFileSize(imageData.size)}</div>
+          <div className="uploader-container-image-info__key">Type:</div>
+          <div className="uploader-container-image-info__value">{imageData.type}</div>
+        </div>
       </div>
     )
   }

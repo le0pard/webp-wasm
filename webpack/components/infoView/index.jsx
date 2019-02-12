@@ -1,10 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class InfoView extends React.Component {
+  static propTypes = {
+    version: PropTypes.string.isRequired
+  }
+
   render() {
+    const {version} = this.props
+
     return (
       <p>
-        You need provide basic information about your hardware configuration, where is working PostgreSQL database. Results will be calculated after clicking "Generate" button
+        Convert your image jpg or png image into webp format.
+        Webp version <strong>{version}</strong>
       </p>
     )
   }

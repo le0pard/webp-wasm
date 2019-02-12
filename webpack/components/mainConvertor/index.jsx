@@ -9,6 +9,7 @@ import './main-convertor.sass'
 
 export default class MainConvertor extends React.Component {
   static propTypes = {
+    libwebpVersion: PropTypes.string,
     isEmptyState: PropTypes.bool.isRequired,
     isEncodingImage: PropTypes.bool.isRequired,
     isHaveEncodedImage: PropTypes.bool.isRequired,
@@ -21,22 +22,29 @@ export default class MainConvertor extends React.Component {
 
   render() {
     const {
+      libwebpVersion,
       isEmptyState,
       isEncodingImage,
       isHaveEncodedImage
     } = this.props
 
-    return (
-      <div className="main-convertor">
-        <div className="main-convertor-form-wrapper">
-          <UploaderForm />
+    if (libwebpVersion) {
+      return (
+        <div className="main-convertor">
+          <div className="main-convertor-form-wrapper">
+            <UploaderForm />
+          </div>
+          <div className="main-convertor-result-wrapper">
+            {isEmptyState && <InfoView version={libwebpVersion} />}
+            {isEncodingImage && <EncodeSpinner />}
+            {isHaveEncodedImage && <ResultView />}
+          </div>
         </div>
-        <div className="main-convertor-result-wrapper">
-          {isEmptyState && <InfoView />}
-          {isEncodingImage && <EncodeSpinner />}
-          {isHaveEncodedImage && <ResultView />}
-        </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <EncodeSpinner />
+      )
+    }
   }
 }

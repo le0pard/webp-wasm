@@ -5,7 +5,12 @@ import {
   APP_THEMES_DARK
 } from './constants'
 
+export const webpVersion = createAction('WASM Webp version')
 export const settingsToggleTheme = createAction('Toggle app theme')
+
+const libwebpVersion = createReducer({
+  [webpVersion]: (state, payload) => payload
+}, null)
 
 const theme = createReducer({
   [settingsToggleTheme]: (state) => (
@@ -14,5 +19,6 @@ const theme = createReducer({
 }, APP_THEMES_LIGHT)
 
 export const reducer = combineReducers({
+  libwebpVersion,
   theme
 })

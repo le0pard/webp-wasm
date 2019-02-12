@@ -15,11 +15,14 @@ export default class ResultView extends React.Component {
   constructor(props) {
     super(props)
     this.imageRef = React.createRef()
+    this.linkRef = React.createRef()
   }
 
   componentDidMount() {
     const {blobURL} = this.props.encodedImageData
     this.imageRef.current.src = blobURL
+    this.linkRef.current.href = blobURL
+    this.linkRef.current.download = 'image.webp'
   }
 
   componentDidUpdate(prevProps) {
@@ -35,9 +38,16 @@ export default class ResultView extends React.Component {
   }
 
   render() {
+    const {width, height} = this.props.encodedImageData
+
     return (
       <div className="result-view-container">
         <img className="result-view-img" ref={this.imageRef} src="" />
+        <div className="result-view-save-wrapper">
+          <a ref={this.linkRef} className="result-view-save-link">
+            Save webp ({width}x{height})
+          </a>
+        </div>
       </div>
     )
   }
