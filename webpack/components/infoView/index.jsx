@@ -11,7 +11,7 @@ export default class InfoView extends React.Component {
 
     return (
       <p>
-        Convert your image jpg or png image into webp format.
+        Convert your jpg or png image into webp format.
         Webp version <strong>{version}</strong>
       </p>
     )
