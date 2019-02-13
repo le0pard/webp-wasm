@@ -10,10 +10,14 @@ export default class InfoView extends React.Component {
     const {version} = this.props
 
     return (
-      <p>
-        Convert your jpg or png image into webp format.
-        Webp version <strong>{version}</strong>
-      </p>
+      <React.Fragment>
+        <p>
+          Convert your jpg or png image into webp
+        </p>
+        <p>
+          <strong>{version}</strong> webp library version is used
+        </p>
+      </React.Fragment>
     )
   }
 }
