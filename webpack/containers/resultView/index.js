@@ -5,11 +5,6 @@ const mapStateToProps = (state) => ({
   encodedImageData: state.uploader.encodedImageData
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  // handleClickTab: (tab) => dispatch(openConfigTab(tab))
-})
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(ResultView)

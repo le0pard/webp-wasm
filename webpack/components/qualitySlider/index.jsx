@@ -39,7 +39,7 @@ export default class QualitySlider extends React.Component {
           max={100}
           step={1}
           onChange={this.onSlideChange.bind(this)}
-          onAfterChange={(value) => onChange(value)}
+          onAfterChange={(v) => onChange(v)}
         />
       </div>
 

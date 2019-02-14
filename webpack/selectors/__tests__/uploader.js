@@ -1,17 +1,33 @@
 import {
-  isUploadedImage
+  isEmptyState,
+  isHaveEncodedImage
 } from '../uploader'
 
-describe('isUploadedImage', () => {
+describe('isEmptyState', () => {
   it('nothing set', () => {
-    expect(isUploadedImage({
+    expect(isEmptyState({
+      uploader: {}
+    })).toEqual(true)
+  })
+  it('set imageData', () => {
+    expect(isEmptyState({
+      uploader: {
+        imageData: {}
+      }
+    })).toEqual(false)
+  })
+})
+
+describe('isHaveEncodedImage', () => {
+  it('nothing set', () => {
+    expect(isHaveEncodedImage({
       uploader: {}
     })).toEqual(false)
   })
-  it('set imageData', () => {
-    expect(isUploadedImage({
+  it('set encodedImageData', () => {
+    expect(isHaveEncodedImage({
       uploader: {
-        imageData: {}
+        encodedImageData: {}
       }
     })).toEqual(true)
   })

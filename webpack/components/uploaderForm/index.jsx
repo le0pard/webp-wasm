@@ -10,7 +10,7 @@ export default class UploaderForm extends React.Component {
     imageData: PropTypes.shape({
       name: PropTypes.string.isRequired,
       size: PropTypes.number.isRequired,
-      type: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired
     }),
     encodeImage: PropTypes.func.isRequired
   }
