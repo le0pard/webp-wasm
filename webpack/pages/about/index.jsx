@@ -7,7 +7,7 @@ export default class AboutPage extends React.Component {
     return (
       <div className="about-page">
         <p>
-          <strong>Webp Wasm</strong> calculate configuration for PostgreSQL based on the maximum performance for a given hardware configuration. It isn't a <a href="https://en.wikipedia.org/wiki/No_Silver_Bullet">silver bullet</a> for the optimization settings of PostgreSQL. Many settings depend not only on the hardware configuration, but also on the size of the database, the number of clients and the complexity of queries, so that optimally configure the database can only be given all these parameters.
+          <strong>Webp Wasm</strong> convert jpg or png image to webp by using WebAssembly. Webassembly (WASM) is an innovative low-level language that can run on all modern browsers. As the name suggests, this is an assembly-like language that have a very compact binary format (thus suitable to be loaded on web pages) and can run with near-native performance.
         </p>
         <h3>Useful links</h3>
         <ul>
