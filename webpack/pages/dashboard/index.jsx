@@ -1,6 +1,6 @@
 import React from 'react'
 import MainConvertor from 'containers/mainConvertor'
-import pgtuneLogo from './pgtune.svg'
+import webpWasmLogo from './webp-wasm.svg'
 
 import './dashboard.sass'
 
@@ -12,7 +12,7 @@ export default class DashboardPage extends React.Component {
           <div className="dashboard-header-logo">
             <img alt="Webp-Wasm"
               className="dashboard-header-logo__svg"
-              src={pgtuneLogo} />
+              src={webpWasmLogo} />
           </div>
           <div className="dashboard-header-title">
             <h1 className="dashboard-header-title__text">
