@@ -9,11 +9,6 @@ export default class DashboardPage extends React.Component {
     return (
       <div className="dashboard-page">
         <div className="dashboard-header-wrapper">
-          <div className="dashboard-header-logo">
-            <img alt="Webp-Wasm"
-              className="dashboard-header-logo__svg"
-              src={webpWasmLogo} />
-          </div>
           <div className="dashboard-header-title">
             <h1 className="dashboard-header-title__text">
               Webp Wasm
