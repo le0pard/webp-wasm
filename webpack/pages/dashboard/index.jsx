@@ -1,6 +1,5 @@
 import React from 'react'
 import MainConvertor from 'containers/mainConvertor'
-import webpWasmLogo from './webp-wasm.svg'
 
 import './dashboard.sass'
 
