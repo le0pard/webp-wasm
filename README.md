@@ -1,6 +1,6 @@
-# [Webp Wasm](https://webp.leopard.in.ua/) [![Build Status](https://travis-ci.org/le0pard/webp-wasm.svg?branch=master)](https://travis-ci.org/le0pard/webp-wasm)
+# [Webp Wasm](https://webp.leopard.in.ua/) [![Build Status](https://travis-ci.com/le0pard/webp-wasm.svg?branch=master)](https://travis-ci.com/le0pard/webp-wasm)
 
-Webp Wasm (webassembly) image convertor. 
+Webp Wasm (webassembly) image convertor.
 
 ## Development
 
