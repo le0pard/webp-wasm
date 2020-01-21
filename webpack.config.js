@@ -110,7 +110,8 @@ const config = {
   resolve: {
     modules: [
       path.join(__dirname, 'webpack'),
-      path.join(__dirname, 'node_modules')
+      path.join(__dirname, 'node_modules'),
+      path.join(__dirname, 'node_modules/babel-runtime/node_modules') // rc-slider still use core-js 2
     ],
     extensions: ['.js', '.jsx', '.json']
   },
