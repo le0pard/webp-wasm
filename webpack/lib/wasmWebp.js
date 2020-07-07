@@ -20,7 +20,7 @@ const WasmWebp = {
     return `${(v >> 16) & 0xff}.${(v >> 8) & 0xff}.${v & 0xff}`
   },
 
-  encode: (image, quality = 100, onStartEncoding = (() => {})) => {
+  encode: (image, quality = 100, onStartEncoding = () => {}) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader()
       let imagePointer = null
